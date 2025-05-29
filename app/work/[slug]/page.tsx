@@ -1,17 +1,17 @@
-"use client";
-
 import { sampleData } from "@/sampleData";
 import Image from "next/image";
+import { notFound } from "next/navigation";
 import React from "react";
 
 const getPageData = (slug: string) => {
   return sampleData.find((sample) => sample.slug === slug);
 };
-const Page = ({ params }: { params: Promise<{ slug: string }> }) => {
-  const resolvedParams = React.use(params);
-  const data = getPageData(resolvedParams.slug);
+const Page = async ({ params }: { params: Promise<{ slug: string }> }) => {
+  const resolvedParams = await params; // انتظر params
+  const slug = resolvedParams.slug;
 
-  if (!data) return null;
+  const data = getPageData(slug);
+  if (!data) return notFound();
 
   return (
     <>
