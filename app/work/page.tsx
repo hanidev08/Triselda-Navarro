@@ -28,7 +28,9 @@ const Page = () => {
     return () => window.removeEventListener("resize", calcDrag);
   }, []);
 
-  pageAnimation();
+  useEffect(() => {
+    pageAnimation();
+  }, []);
 
   return (
     <div
