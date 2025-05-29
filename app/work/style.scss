@@ -1,0 +1,11 @@
+.imageSilderContainer {
+  display: flex;
+  gap: 56px;
+
+  &:hover {
+    cursor: grab;
+  }
+  &:active {
+    cursor: grabbing;
+  }
+}

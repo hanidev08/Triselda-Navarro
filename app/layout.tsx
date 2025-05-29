@@ -1,15 +1,34 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
+import { ViewTransitions } from "next-view-transitions";
+import { Header } from "@/sections/Header";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
+const neueHaas = localFont({
+  src: [
+    {
+      path: "./font/NeueHaasDisplayRoman.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "./font/NeueHaasDisplayBold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  variable: "--font-neueHaas",
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const saoldisplay = localFont({
+  src: [
+    {
+      path: "./font/SaolDisplay-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  variable: "--font-saoldisplay",
 });
 
 export const metadata: Metadata = {
@@ -23,12 +42,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
-      </body>
-    </html>
+    <ViewTransitions>
+      <html lang="en">
+        <body
+          className={`${neueHaas.variable} ${saoldisplay.variable} antialiased font-neueHaas`}
+        >
+          <Header />
+          {children}
+        </body>
+      </html>
+    </ViewTransitions>
   );
 }
