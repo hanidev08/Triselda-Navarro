@@ -3,7 +3,7 @@ import { motion, useAnimate, useInView } from "framer-motion";
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import Button from "@/components/Button";
-
+ 
 const navItems = [
   {
     label: "Home",

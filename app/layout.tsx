@@ -2,8 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import { ViewTransitions } from "next-view-transitions";
-import { Header } from "@/sections/Header";
-
+ 
 const neueHaas = localFont({
   src: [
     {
@@ -47,7 +46,6 @@ export default function RootLayout({
         <body
           className={`${neueHaas.variable} ${saoldisplay.variable} antialiased font-neueHaas`}
         >
-          <Header />
           {children}
         </body>
       </html>
